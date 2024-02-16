@@ -1,0 +1,59 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "plugins": ["import", "simple-import-sort"],
+  "rules": {
+    "react/display-name": "off",
+    "@next/next/no-img-element": "off",
+    "react/no-unescaped-entities": "off",
+    "import/no-anonymous-default-export": "off",
+    // add new line above comment
+    "lines-around-comment": [
+      "error",
+      {
+        "beforeLineComment": true,
+        "beforeBlockComment": true,
+        "allowBlockStart": true,
+        "allowClassStart": true,
+        "allowObjectStart": true,
+        "allowArrayStart": true
+      }
+    ],
+    // add new line above return
+    "newline-before-return": "error",
+    // add new line below import
+    "import/newline-after-import": [
+      "error",
+      {
+        "count": 1
+      }
+    ],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Second group: Packages (@scope).
+          ["^@"],
+
+          // Third group: Packages (non-scoped).
+          ["^"],
+
+          // Fourth group: Relative imports.
+          ["^\\.\\/"]
+        ]
+      }
+    ],
+    "no-undef": "off", // Turn off 'no-undef' rule to avoid 'React' is not defined error
+    "no-unused-vars": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Automatically detect the React version
+    }
+  }
+}
